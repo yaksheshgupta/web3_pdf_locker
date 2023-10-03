@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieve Original PDF</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div id="notificationBar" class="notification-hidden">
+        <p id="notificationMessage"></p>
+    </div>
+    <!-- ... -->
+
+    <div class="container">
+        <h1>Retrieve Original PDF</h1>
+
+        <!-- Button to connect to MetaMask -->
+        <button onclick="connectMetaMask()" id="metabutton">Connect to MetaMask</button>
+
+        <form id="retrieveForm" enctype="multipart/form-data">
+            <label for="encryptedFile">Upload Encrypted PDF:</label>
+            <input type="file" id="encryptedFile" name="encryptedFile" accept=".pdf" required>
+
+            <label for="userInput">Enter Memorable Information:</label>
+            <textarea id="userInput" name="userInput" rows="4" required></textarea>
+
+            <button type="button" onclick="requestSignatureAndDecrypt()">Retrieve</button>
+        </form>
+    </div>
+
+    <!-- ... -->
+
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@latest/dist/web3.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Signature with User Input</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div id="notificationBar" class="notification-hidden">
+        <p id="notificationMessage"></p>
+    </div>
+    <div class="container">
+        <h1>Web3 Signature Demo</h1>
+
+        <label for="userInput">Enter a memorable piece of information:</label>
+        <input type="text" id="userInput" placeholder="E.g., First car name">
+        <p class="info-text">
+            This memorable information, combined with a standard message, will be used to generate a unique signature.
+            When you sign this, the signature will be used to lock your PDF, and it can be opened on this platform only.
+            Always remember the memorable information you've used: <strong id="memInfoDisplay">None provided
+                yet</strong>.
+        </p>
+        <input type="file" id="pdfFile" accept=".pdf">
+        <button onclick="connectMetaMask()" id="metabutton">Connect MetaMask</button>
+        <h4 id="walletAdd"></h4>
+        <button onclick="requestSignature()">Request Signature</button>
+
+        <h2>Your Signature:</h2>
+        <p id="signatureDisplay">Signature will be displayed here...</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.3.4/dist/web3.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
